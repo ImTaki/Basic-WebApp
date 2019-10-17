@@ -4,7 +4,7 @@
  * @Author: Taki Guan
  * @Date: 2019-09-27 09:49:56
  * @LastEditors: Taki Guan
- * @LastEditTime: 2019-10-15 14:44:57
+ * @LastEditTime: 2019-10-17 14:36:27
  */
 var id = "1T3gsjezKPaZd60l6CuyM8pnuM9FaAxsSuzdrDvHP3tA";
 
@@ -12,7 +12,11 @@ function doGet(e) {
 
     // Logger.log(e);
 
-    return loadForm();
+    if (e.parameters.v == "form") {
+        return loadForm();
+    } else {
+        return HtmlService.createHtmlOutput("<h1>Hello</h1>");
+    }
 
 }
 
@@ -29,9 +33,7 @@ function loadForm() {
     var tmp = HtmlService.createTemplateFromFile("page");
 
     tmp.list = htmlArray;
-  
+
     return tmp.evaluate();
-  
+
 }
-
-
