@@ -1,10 +1,17 @@
 <script>
     $(document).ready(function () {
-        $('#example').DataTable({
-            columnDefs: [{
-                targets: [0, 1, 2],
-                className: 'mdl-data-table__cell--non-numeric'
-            }]
-        });
+        $('#example').DataTable(
+        {
+        scrollY:        "300px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
+        fixedColumns:   {
+        leftColumns: 0,
+        rightColumns: 1
+        }
+        }
+        
+        );
     });
 </script>
