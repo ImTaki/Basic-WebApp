@@ -19,6 +19,7 @@ function doGet(e) {
     Route.path("form", loadForm);
     Route.path("about", loadAbout);
     Route.path("login", loadLogin);
+    Route.path("table", loadDataTables);
 
     if (Route[e.parameters.v]) {
         return Route[e.parameters.v]();
@@ -68,4 +69,10 @@ function loadAbout() {
 
 function loadLogin() {
     return render("login");
+}
+
+function loadDataTables() {
+
+    return render('datatables');
+
 }
