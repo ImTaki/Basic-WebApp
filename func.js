@@ -63,3 +63,15 @@ function userClick(userInfo) {
     // Logger.log(name + " Click the Button")
 
 }
+
+function getEmployeeDataFromSheet() {
+
+    var ss = SpreadsheetApp.openById(id);
+    var ws = ss.getSheetByName("DataTables");
+    var data = ws.getRange(2, 1, ws.getLastRow() - 1, 6);
+
+    Logger.log(data);
+
+    return data;
+
+}

@@ -1,6 +1,31 @@
 <script>
     $(document).ready(function () {
 
+        google.script.run.withSuccessHandler(loadEmployeeData).getEmployeeDataFromSheet();
+
+    });
+
+    function loadEmployeeData(data) {
+
+        var html = "";
+
+        if (data) {
+
+            for (var i = 0; i < data.length; i++) {
+
+                html += "<td>" + data[i][0] + "</td>";
+                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][1] + "\"></td>";
+                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][2] + "\"></td>";
+                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][3] + "\"></td>";
+                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][4] + "\"></td>";
+                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][5] + "\"></td>";
+
+            }
+
+            $("#exampleBody").html(html);
+
+        }
+
         $('#example').DataTable({
 
             scrollY: "400px",
@@ -15,5 +40,6 @@
                 rightColumns: 0
             }
         });
-    });
+
+    }
 </script>
