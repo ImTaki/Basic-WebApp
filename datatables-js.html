@@ -3,9 +3,32 @@
 
         google.script.run.withSuccessHandler(loadEmployeeData).getEmployeeDataFromSheet();
 
+
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        $('#submitButton').click(function () {
+
+            // var table = document.getElementById("exampleBody");
+
+            var rows = $('#exampleBody tr');
+
+            var actEmployeeData = [];
+
+            for (var i = 0; i < rows.length; i++) {
+
+                console.log(rows[i]);
+
+            }
+
+        });
+
     });
 
     function loadEmployeeData(data) {
+
+        // console.log(data);
 
         var html = "";
 
@@ -13,22 +36,22 @@
 
             for (var i = 0; i < data.length; i++) {
 
-                html += "<td>" + data[i][0] + "</td>";
+                html += "<tr><td>" + data[i][0] + "</td>";
                 html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][1] + "\"></td>";
                 html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][2] + "\"></td>";
                 html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][3] + "\"></td>";
                 html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][4] + "\"></td>";
-                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][5] + "\"></td>";
+                html += "<td><input class=\"mdl-textfield__input table-input-field\" type=\"text\" value=\"" + data[i][5] + "\"></td></tr>";
 
             }
 
-            $("#exampleBody").html(html);
+            $('#exampleBody').html(html);
 
         }
 
         $('#example').DataTable({
 
-            scrollY: "400px",
+            scrollY: "350px",
             scrollX: true,
             scrollCollapse: true,
             paging: false,

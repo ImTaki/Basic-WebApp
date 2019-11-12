@@ -68,7 +68,7 @@ function getEmployeeDataFromSheet() {
 
     var ss = SpreadsheetApp.openById(id);
     var ws = ss.getSheetByName("DataTables");
-    var data = ws.getRange(2, 1, ws.getLastRow() - 1, 6);
+    var data = ws.getRange(2, 1, ws.getLastRow() - 1, 6).getValues();
 
     Logger.log(data);
 
